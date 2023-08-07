@@ -27,5 +27,14 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             tools:text="This is a message" />
+        <ImageView
+            android:id="@+id/btn_speaker"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_volume"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="12dp"/>
     </LinearLayout>
 </LinearLayout>

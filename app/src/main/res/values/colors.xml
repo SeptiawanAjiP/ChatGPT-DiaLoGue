@@ -4,4 +4,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="color_1">#11dd66</color>
+    <color name="color_2">#e25078</color>
+    <color name="color_3">#f27b12</color>
+    <color name="color_4">#3d85c6</color>
+    <color name="color_5">#4f755e </color>
+    <color name="color_6">#7c9bb9</color>
+
 </resources>

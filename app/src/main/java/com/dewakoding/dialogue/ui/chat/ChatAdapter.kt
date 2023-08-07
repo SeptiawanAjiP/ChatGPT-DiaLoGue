@@ -1,13 +1,15 @@
-package com.dewakoding.dialogue.ui
+package com.dewakoding.dialogue.ui.chat
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.databinding.ItemChatGptBinding
 import com.dewakoding.dialogue.databinding.ItemChatUserBinding
+import com.dewakoding.dialogue.listener.OnItemClickListener
 
-class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChatAdapter(val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val fullList = ArrayList<Chat>()
 
@@ -15,6 +17,9 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: Chat) {
             binding.messageText.text = chat.content
+            binding.btnSpeaker.setOnClickListener {
+                onItemClickListener.onClick(chat)
+            }
         }
     }
 
@@ -22,6 +27,9 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: Chat) {
             binding.messageText.text = chat.content
+            binding.btnSpeaker.setOnClickListener {
+                onItemClickListener.onClick(chat)
+            }
         }
     }
 
@@ -44,9 +52,11 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val chat = fullList[position]
         if (holder is GptViewHolder) {
             holder.bind(chat)
+
         } else if (holder is UserViewHolder) {
             holder.bind(chat)
         }
+
     }
 
     fun updateList(newList: List<Chat>) {

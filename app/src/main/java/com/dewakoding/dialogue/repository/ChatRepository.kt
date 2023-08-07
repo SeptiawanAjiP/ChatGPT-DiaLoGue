@@ -25,9 +25,15 @@ class ChatRepository {
     private val context = App.context()
     private val database = AppDatabase.getDatabase(context)
 
-    val allChats: LiveData<List<Chat>> = database.chatDao().getChats()
+    fun getAllChats(sessionId: Int): LiveData<List<Chat>> {
+        return database.chatDao().getChats(sessionId)
+    }
 
-    fun insertChat(content : String, isFromUser: Boolean) = database.chatDao().insertChat(Chat(0, content, isFromUser))
+    fun getLastGptChat(sessionId: Int): Chat? {
+        return database.chatDao().getLastGptChat(sessionId)
+    }
+
+    fun insertChat(content : String, sessionId: Int, isFromUser: Boolean) = database.chatDao().insertChat(Chat(0, content, sessionId, isFromUser))
 
     suspend fun postToGptApi(json: JsonObject, successResponse: NetCallBack) = RetrofitClient.instance.postRequest(json).enqueue(object:
         Callback<ChatGptResponse> {

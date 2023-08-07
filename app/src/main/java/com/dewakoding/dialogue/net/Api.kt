@@ -18,7 +18,7 @@ at : 02/07/23 - 21.55
 interface Api {
     @Headers(
         "Content-Type: application/json",
-        "Authorization: Bearer "
+        "Authorization: Bearer {{YOUR API KEY}}"
     )
     @POST("chat/completions")
     fun postRequest(@Body jsonObject: JsonObject): Call<ChatGptResponse>

@@ -12,6 +12,8 @@ data class Chat(
     var id : Int,
     @ColumnInfo(name = "content")
     var content : String,
+    @ColumnInfo(name = "session_id")
+    var sessionId: Int,
     @ColumnInfo(name = "is_from_user")
     var isFromUser : Boolean
 
