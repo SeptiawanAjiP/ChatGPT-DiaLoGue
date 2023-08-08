@@ -28,6 +28,7 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeec = TextToSpeech(this, this)
         adapter = ChatAdapter(object: OnItemClickListener{
             override fun onClick(chat: Chat) {
+                textToSpeec.setSpeechRate(0.7f)
                 textToSpeec!!.speak(chat.content, TextToSpeech.QUEUE_FLUSH, null,"")
             }
         })
@@ -70,9 +71,12 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         )
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE,
-            Locale.getDefault()
+            "en-US"
         )
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text")
+        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 3000);
+        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 3000);
+        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 3500);
         try {
             startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT)
         } catch (e: Exception) {
