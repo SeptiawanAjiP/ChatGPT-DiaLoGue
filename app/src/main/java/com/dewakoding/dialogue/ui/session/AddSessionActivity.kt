@@ -29,7 +29,7 @@ class AddSessionActivity : AppCompatActivity() {
 
         binding.imgCheck.setOnClickListener {
             val title = binding.etTitle.text.toString()
-            val noteDesc = binding.etNote.text.toString()
+            val noteDesc = binding.etDescription.text.toString()
             Toast.makeText(applicationContext, "Success created a session", Toast.LENGTH_SHORT).show()
 
             if (!title.isNullOrEmpty() && !noteDesc.isNullOrEmpty()) {

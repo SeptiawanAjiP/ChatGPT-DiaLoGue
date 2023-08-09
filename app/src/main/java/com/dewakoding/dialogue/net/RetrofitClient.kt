@@ -1,5 +1,9 @@
 package com.dewakoding.dialogue.net
 
+import com.dewakoding.dialogue.App
+import com.dewakoding.dialogue.preference.CommonCons
+import kotlinx.coroutines.runBlocking
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,6 +16,13 @@ object RetrofitClient {
         .connectTimeout(1, TimeUnit.MINUTES)
         .readTimeout(1, TimeUnit.MINUTES)
         .writeTimeout(1, TimeUnit.MINUTES)
+        .addInterceptor(Interceptor { chain: Interceptor.Chain ->
+            val token = App.getSession().getSessionString(CommonCons.API_KEY)
+            val request = chain.request().newBuilder()
+                .addHeader("Authorization", "Bearer ${token}")
+                .build()
+            chain.proceed(request)
+        })
         .build()
 
     val instance: Api by lazy {

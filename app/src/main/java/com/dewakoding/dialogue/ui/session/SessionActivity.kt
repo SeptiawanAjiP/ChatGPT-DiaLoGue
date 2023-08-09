@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProvider
@@ -12,7 +13,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dewakoding.dialogue.database.AppDatabase
 import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivitySessionBinding
+import com.dewakoding.dialogue.ui.setting.SettingActivity
 import com.dewakoding.dialogue.ui.chat.ChatActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {
     private val binding by lazy { ActivitySessionBinding.inflate(layoutInflater) }
@@ -65,6 +70,11 @@ class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {
 
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, AddSessionActivity::class.java)
+            getContent.launch(intent)
+        }
+
+        binding.imgSetting.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
             getContent.launch(intent)
         }
     }

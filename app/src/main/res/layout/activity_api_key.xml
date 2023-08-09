@@ -28,12 +28,13 @@
                 android:id="@+id/tv_add_session"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Session"
+                android:text="Add API KEY"
                 android:textSize="24sp"
                 android:layout_toRightOf="@id/img_back"
                 android:layout_marginLeft="16dp"
                 android:textColor="@color/black"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:visibility="gone"/>
             <ImageView
                 android:id="@+id/img_check"
                 android:layout_width="wrap_content"
@@ -44,26 +45,24 @@
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
-   <EditText
-       android:id="@+id/et_title"
-       android:layout_width="0dp"
-       android:layout_marginTop="8dp"
-       android:layout_marginStart="16dp"
-       android:layout_marginEnd="16dp"
-       android:layout_height="wrap_content"
-       android:ems="10"
-       android:hint="Title"
-       android:inputType="textPersonName"
-       app:layout_constraintTop_toBottomOf="@id/toolbar"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       android:textSize="26sp"
-       android:background="@null"
-       android:textColor="@color/black"
-       android:textColorHint="@color/black"/>
+    <TextView
+        android:id="@+id/et_title"
+        android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Add your API KEY"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="26sp"
+        android:background="@null"
+        android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/et_description"
+        android:id="@+id/et_api_key"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
@@ -72,7 +71,7 @@
         android:ems="10"
         android:inputType="textMultiLine"
         android:lineSpacingMultiplier="1.0"
-        android:hint="Description"
+        android:hint="your api key"
         android:textSize="18sp"
         android:gravity="top"
         android:background="@null"

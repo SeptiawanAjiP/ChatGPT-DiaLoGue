@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".ui.chat.ChatActivity"/>
         <activity android:name=".ui.session.AddSessionActivity"/>
+        <activity android:name=".ui.setting.SettingActivity"/>
     </application>
 
 </manifest>

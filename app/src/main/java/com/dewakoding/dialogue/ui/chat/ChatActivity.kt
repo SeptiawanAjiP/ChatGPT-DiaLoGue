@@ -95,7 +95,7 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (resultCode == RESULT_OK && data != null) {
                 val res: ArrayList<String> =
                     data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
-                viewModel.postToGPT(listChat, Objects.requireNonNull(res)[0], session.id!!, false)
+                viewModel.postToGPT(listChat.takeLast(5), Objects.requireNonNull(res)[0], session.id!!, false)
                 viewModel.insert(Objects.requireNonNull(res)[0], session.id!!, true)
             }
         }
