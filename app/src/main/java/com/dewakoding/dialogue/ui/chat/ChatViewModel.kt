@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.dewakoding.dialogue.net.NetCallBack
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.net.ChatGptResponse
+import com.dewakoding.dialogue.preference.CommonCons
 import com.dewakoding.dialogue.repository.ChatRepository
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -48,11 +49,10 @@ class ChatViewModel(application: Application): AndroidViewModel(application) {
 
     fun postToGPT(listChat: List<Chat>?, str : String, sessionId: Int, isInit: Boolean) = viewModelScope.launch {
         val jsonArray = JsonArray()
-        val allChatsLiveData = getAllChat(sessionId)
         if (isInit) {
             val lastObject = JsonObject().apply {
                 addProperty("role", "system")
-                addProperty("content", "I am trying to learn English. You are an experienced teacher of English language.Your name is DiaLoGue. Your goal is to keep me engaged in a conversation so I can practice my reading and writing. You must answer my questions. You must ask me open-ended questions and provide answers with an easy to understand text. Always answer in English. Don’t repeat yourself. Be creative. You must always continue conversation and always ask me only one question. Never ask me more than 1 question. You must never let a conversation die. Answer with maximum of 5 sentences in total. Always answer in English.. The answer must be short and max 200 words.")
+                addProperty("content", CommonCons.PROMPT_INIT)
             }
             jsonArray.add(lastObject)
         } else {
@@ -61,7 +61,7 @@ class ChatViewModel(application: Application): AndroidViewModel(application) {
                     val obj = JsonObject().apply {
                         if (chat.isFromUser) {
                             addProperty("role", "user")
-                            addProperty("content", chat.content + " (reminder: I am trying to learn English. You are an experienced teacher of English language.Your name is DiaLoGue. Your goal is to keep me engaged in a conversation so I can practice my reading and writing. You must answer my questions. You must ask me open-ended questions and provide answers with an easy to understand text. Always answer in English. Don’t repeat yourself. Be creative. You must always continue conversation and always ask me only one question. Never ask me more than 1 question. You must never let a conversation die. Answer with maximum of 5 sentences in total. Always answer in English.. The answer must be short and max 200 words.)")
+                            addProperty("content", chat.content + " (reminder: ${CommonCons.PROMPT}")
                         } else {
                             addProperty("role", "assistant")
                             addProperty("content", chat.content)
@@ -73,7 +73,7 @@ class ChatViewModel(application: Application): AndroidViewModel(application) {
 
             val obj = JsonObject().apply {
                 addProperty("role", "user")
-                addProperty("content", str + " (reminder: I am trying to learn English. You are an experienced teacher of English language.Your name is DiaLoGue. Your goal is to keep me engaged in a conversation so I can practice my reading and writing. You must answer my questions. You must ask me open-ended questions and provide answers with an easy to understand text. Always answer in English. Don’t repeat yourself. Be creative. You must always continue conversation and always ask me only one question. Never ask me more than 1 question. You must never let a conversation die. Answer with maximum of 5 sentences in total. Always answer in English.. The answer must be short and max 200 words.)")
+                addProperty("content", str + " (reminder: ${CommonCons.PROMPT}")
             }
             jsonArray.add(obj)
         }
