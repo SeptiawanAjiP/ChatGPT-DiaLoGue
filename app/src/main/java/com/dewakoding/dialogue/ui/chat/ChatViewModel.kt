@@ -1,21 +1,17 @@
 package com.dewakoding.dialogue.ui.chat
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dewakoding.dialogue.net.NetCallBack
+import com.dewakoding.dialogue.listener.NetResponseListener
 import com.dewakoding.dialogue.database.entity.Chat
-import com.dewakoding.dialogue.net.ChatGptResponse
+import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.dewakoding.dialogue.preference.CommonCons
 import com.dewakoding.dialogue.repository.ChatRepository
-import com.dewakoding.dialogue.repository.SessionRepository
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -83,7 +79,7 @@ class ChatViewModel @Inject constructor(val chatRepository: ChatRepository): Vie
         }
 
         try {
-            chatRepository.postToGptApi(request, object: NetCallBack {
+            chatRepository.postToGptApi(request, object: NetResponseListener {
                 override fun onSuccess(successResponse: Any) {
                     val response = successResponse as Response<ChatGptResponse>
                     val code = response.code().toString()

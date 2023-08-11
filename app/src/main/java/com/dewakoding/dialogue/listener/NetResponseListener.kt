@@ -1,4 +1,4 @@
-package com.dewakoding.dialogue.net
+package com.dewakoding.dialogue.listener
 
 
 /**
@@ -9,7 +9,7 @@ email : septiawanajipradana@gmail.com
 website : dewakoding.com
 
  **/
-interface NetCallBack {
+interface NetResponseListener {
     fun onSuccess(successResponse: Any)
     fun onFailed(errorMessage: String)
 }

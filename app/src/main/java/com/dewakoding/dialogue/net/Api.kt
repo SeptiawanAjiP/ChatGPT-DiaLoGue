@@ -1,5 +1,6 @@
 package com.dewakoding.dialogue.net
 
+import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.Body

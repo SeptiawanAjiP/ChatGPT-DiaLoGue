@@ -1,4 +1,4 @@
-package com.dewakoding.dialogue.net
+package com.dewakoding.dialogue.net.response
 
 import com.google.gson.annotations.SerializedName
 
