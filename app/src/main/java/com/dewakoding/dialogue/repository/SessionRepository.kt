@@ -3,6 +3,7 @@ package com.dewakoding.dialogue.repository
 import androidx.lifecycle.LiveData
 import com.dewakoding.dialogue.database.dao.SessionDao
 import com.dewakoding.dialogue.database.entity.Session
+import javax.inject.Inject
 
 
 /**
@@ -13,7 +14,7 @@ email : septiawanajipradana@gmail.com
 website : dewakoding.com
 
  **/
-class SessionRepository(private val sessionDao: SessionDao) {
+class SessionRepository @Inject constructor(private val sessionDao: SessionDao) {
 
     val allSession: LiveData<List<Session>> = sessionDao.getAllSession()
 

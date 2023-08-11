@@ -11,23 +11,7 @@ import com.dewakoding.dialogue.database.entity.Session
 
 @Database(entities = arrayOf(Chat::class, Session::class), version = 2)
 abstract class AppDatabase: RoomDatabase() {
-
     abstract fun chatDao(): ChatDao
     abstract fun sessionDao(): SessionDao
-
-    companion object {
-        private var INSTANCE: AppDatabase? = null
-
-        fun getDatabase(context: Context): AppDatabase {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "chat_dialogue").build()
-                INSTANCE = instance
-                instance
-            }
-        }
-    }
 
 }

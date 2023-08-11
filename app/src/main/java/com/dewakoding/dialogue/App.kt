@@ -3,7 +3,9 @@ package com.dewakoding.dialogue
 import android.app.Application
 import android.content.Context
 import com.dewakoding.dialogue.preference.Session
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
 
     init {
@@ -24,6 +26,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         mSession = Session(this)
+
     }
 
 }

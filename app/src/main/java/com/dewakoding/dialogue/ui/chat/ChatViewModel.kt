@@ -4,19 +4,23 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dewakoding.dialogue.net.NetCallBack
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.net.ChatGptResponse
 import com.dewakoding.dialogue.preference.CommonCons
 import com.dewakoding.dialogue.repository.ChatRepository
+import com.dewakoding.dialogue.repository.SessionRepository
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.lang.Exception
+import javax.inject.Inject
 
 
 /**
@@ -27,13 +31,8 @@ email : septiawanajipradana@gmail.com
 website : dewakoding.com
 
  **/
-class ChatViewModel(application: Application): AndroidViewModel(application) {
-
-    private val chatRepository: ChatRepository
-
-    init {
-        chatRepository= ChatRepository()
-    }
+@HiltViewModel
+class ChatViewModel @Inject constructor(val chatRepository: ChatRepository): ViewModel() {
 
     fun getAllChat(sessionId: Int): LiveData<List<Chat>> {
         return chatRepository.getAllChats(sessionId = sessionId)

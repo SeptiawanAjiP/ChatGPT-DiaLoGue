@@ -8,10 +8,12 @@ import android.util.Log
 import android.widget.Toast
 import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityAddSessionBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+@AndroidEntryPoint
 class AddSessionActivity : AppCompatActivity() {
     private val binding by lazy { ActivityAddSessionBinding.inflate(layoutInflater) }
     private lateinit var session: Session

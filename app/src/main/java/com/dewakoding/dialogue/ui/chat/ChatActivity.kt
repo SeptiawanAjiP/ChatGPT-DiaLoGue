@@ -6,18 +6,22 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityChatBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
+import com.dewakoding.dialogue.ui.session.SessionViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 import java.util.Objects
 
+@AndroidEntryPoint
 class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private val binding by lazy { ActivityChatBinding.inflate(layoutInflater)}
     private val REQUEST_CODE_SPEECH_INPUT = 1
-    lateinit var viewModel : ChatViewModel
+    private val viewModel: ChatViewModel by viewModels()
     lateinit var adapter: ChatAdapter
     private lateinit var session: Session
     lateinit var listChat: List<Chat>
@@ -39,9 +43,6 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         session = intent.getSerializableExtra("session") as Session
 
         binding.tvTitle.text = session.title
-
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(
-            ChatViewModel::class.java)
 
 
         viewModel.getAllChat(session.id!!).observe(this) { list ->

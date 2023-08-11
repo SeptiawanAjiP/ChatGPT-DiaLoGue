@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -68,4 +69,13 @@ dependencies {
 
     // gson
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Hilt
+    implementation 'com.google.dagger:hilt-android:2.43.2'
+    kapt 'com.google.dagger:hilt-compiler:2.43.2'
+
+    // preference datastore
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+
+    implementation 'androidx.activity:activity-ktx:1.3.1'
 }
