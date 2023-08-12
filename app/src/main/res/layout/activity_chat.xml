@@ -43,22 +43,65 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_record"
+        app:layout_constraintBottom_toTopOf="@id/ll_chat_input"
         app:layout_constraintTop_toBottomOf="@id/ll_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:itemCount="10"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-    <Button
-        android:id="@+id/btn_record"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RECORD"
-        android:background="@color/primary"
-        android:textColor="@color/white"
+
+    <LinearLayout
+        android:id="@+id/ll_chat_input"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent">
 
+        <ImageView
+            android:id="@+id/img_record"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_mic"
+            android:layout_gravity="center_vertical"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+        <EditText
+
+            android:id="@+id/et_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="Enter message ..."
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="6" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:text="Send"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:background="@color/primary"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

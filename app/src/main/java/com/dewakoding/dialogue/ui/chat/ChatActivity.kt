@@ -32,8 +32,7 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeec = TextToSpeech(this, this)
         adapter = ChatAdapter(object: OnItemClickListener{
             override fun onClick(chat: Chat) {
-                textToSpeec.setSpeechRate(0.7f)
-                textToSpeec!!.speak(chat.content, TextToSpeech.QUEUE_FLUSH, null,"")
+                speech(chat.content)
             }
         })
         binding.rvChat.adapter = adapter
@@ -49,6 +48,10 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             list.let {
                 listChat = list
                 adapter.updateList(list)
+                // need a switch button to active or deactive this feature
+//                if (!list.last().isFromUser) {
+//                    speech((list.last().content))
+//                }
                 if (list.size == 0) {
                     viewModel.postToGPT(null, "", session.id!!, true)
                 }
@@ -58,10 +61,25 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
         }
-        binding.btnRecord.setOnClickListener {
+        binding.imgRecord.setOnClickListener {
            record()
         }
 
+        binding.btnSend.setOnClickListener {
+            if (!binding.etMessage.text.isNullOrEmpty()) {
+                viewModel.postToGPT(listChat.takeLast(5), binding.etMessage.text.toString(), session.id!!, false)
+                viewModel.insert(binding.etMessage.text.toString(), session.id!!, true)
+                binding.etMessage.setText("")
+            } else {
+                Toast.makeText(applicationContext, "Please, write something", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+    }
+
+    fun speech(str: String) {
+        textToSpeec.setSpeechRate(0.7f)
+        textToSpeec!!.speak(str, TextToSpeech.QUEUE_FLUSH, null,"")
     }
 
     fun record() {
