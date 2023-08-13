@@ -49,9 +49,9 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 listChat = list
                 adapter.updateList(list)
                 // need a switch button to active or deactive this feature
-//                if (!list.last().isFromUser) {
-//                    speech((list.last().content))
-//                }
+                if (!list.last().isFromUser) {
+                    speech((list.last().content))
+                }
                 if (list.size == 0) {
                     viewModel.postToGPT(null, "", session.id!!, true)
                 }
