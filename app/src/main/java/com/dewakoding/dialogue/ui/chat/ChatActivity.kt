@@ -1,21 +1,22 @@
 package com.dewakoding.dialogue.ui.chat
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
+import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityChatBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
-import com.dewakoding.dialogue.ui.session.SessionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 import java.util.Objects
+
 
 @AndroidEntryPoint
 class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -36,6 +37,7 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         })
         binding.rvChat.adapter = adapter
+
         binding.imgBack.setOnClickListener {
             finish()
         }
@@ -43,14 +45,14 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         binding.tvTitle.text = session.title
 
-
         viewModel.getAllChat(session.id!!).observe(this) { list ->
             list.let {
                 listChat = list
                 adapter.updateList(list)
-                // need a switch button to active or deactive this feature
-                if (!list.last().isFromUser) {
-                    speech((list.last().content))
+                if (list.isNotEmpty()) {
+                    if (!list.last().isFromUser) {
+                        speech((list.last().content))
+                    }
                 }
                 if (list.size == 0) {
                     viewModel.postToGPT(null, "", session.id!!, true)
@@ -59,7 +61,6 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     binding.rvChat.smoothScrollToPosition(list.size - 1)
                 }
             }
-
         }
         binding.imgRecord.setOnClickListener {
            record()
@@ -73,12 +74,28 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             } else {
                 Toast.makeText(applicationContext, "Please, write something", Toast.LENGTH_SHORT).show()
             }
+        }
 
+        binding.imgType.setOnClickListener {
+            val popupMenu = PopupMenu(this, binding.imgType)
+            popupMenu.menuInflater.inflate(R.menu.chat_menu,popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when(item.itemId) {
+                    R.id.item_writing ->
+                        Toast.makeText(this@ChatActivity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+                    R.id.item_grammar ->
+                        Toast.makeText(this@ChatActivity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+                    R.id.item_reading ->
+                        Toast.makeText(this@ChatActivity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+                }
+                true
+            })
+            popupMenu.show()
         }
     }
 
     fun speech(str: String) {
-        textToSpeec.setSpeechRate(0.7f)
+        textToSpeec.setSpeechRate(1f)
         textToSpeec!!.speak(str, TextToSpeech.QUEUE_FLUSH, null,"")
     }
 
@@ -114,8 +131,8 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (resultCode == RESULT_OK && data != null) {
                 val res: ArrayList<String> =
                     data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
-                viewModel.postToGPT(listChat.takeLast(5), Objects.requireNonNull(res)[0], session.id!!, false)
-                viewModel.insert(Objects.requireNonNull(res)[0], session.id!!, true)
+                val str = binding.etMessage.text.toString()
+                binding.etMessage.setText(str + " " + Objects.requireNonNull(res)[0])
             }
         }
     }

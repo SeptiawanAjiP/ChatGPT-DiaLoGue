@@ -2,13 +2,16 @@ package com.dewakoding.dialogue.ui.chat
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dewakoding.dialogue.App
 import com.dewakoding.dialogue.listener.NetResponseListener
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.net.response.ChatGptResponse
-import com.dewakoding.dialogue.preference.CommonCons
+import com.dewakoding.dialogue.util.CommonCons
 import com.dewakoding.dialogue.repository.ChatRepository
+import com.dewakoding.dialogue.util.CommonCons.Companion.WRITING
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -47,16 +50,17 @@ class ChatViewModel @Inject constructor(val chatRepository: ChatRepository): Vie
         if (isInit) {
             val lastObject = JsonObject().apply {
                 addProperty("role", "system")
-                addProperty("content", CommonCons.PROMPT_INIT)
+                addProperty("content", CommonCons.PROMPT_CONVERSATION_INIT)
             }
             jsonArray.add(lastObject)
         } else {
+            var reminder = " (reminder: ${CommonCons.PROMPT_CONVERSATION})"
             if (listChat != null) {
                 listChat?.forEach { chat ->
                     val obj = JsonObject().apply {
                         if (chat.isFromUser) {
                             addProperty("role", "user")
-                            addProperty("content", chat.content + " (reminder: ${CommonCons.PROMPT}")
+                            addProperty("content", chat.content + reminder)
                         } else {
                             addProperty("role", "assistant")
                             addProperty("content", chat.content)
@@ -68,7 +72,7 @@ class ChatViewModel @Inject constructor(val chatRepository: ChatRepository): Vie
 
             val obj = JsonObject().apply {
                 addProperty("role", "user")
-                addProperty("content", str + " (reminder: ${CommonCons.PROMPT}")
+                addProperty("content", str + reminder)
             }
             jsonArray.add(obj)
         }

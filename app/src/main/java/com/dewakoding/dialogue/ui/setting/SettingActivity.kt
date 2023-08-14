@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dewakoding.dialogue.App
 import com.dewakoding.dialogue.databinding.ActivityApiKeyBinding
-import com.dewakoding.dialogue.preference.CommonCons
+import com.dewakoding.dialogue.util.CommonCons
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -41,8 +41,11 @@ class SettingActivity: AppCompatActivity() {
                 } else {
                     Toast.makeText(applicationContext, "Empty Api Key", Toast.LENGTH_SHORT).show()
                 }
-
             }
+        }
+
+        binding.imgBack.setOnClickListener {
+            finish()
         }
 
     }

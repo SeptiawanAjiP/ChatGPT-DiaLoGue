@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_writing"
+        android:orderInCategory="100"
+        android:title="Writing"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_grammar"
+        android:orderInCategory="100"
+        android:title="Grammar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_reading"
+        android:orderInCategory="100"
+        android:title="Reading"
+        app:showAsAction="never" />
+</menu>

@@ -1,8 +1,7 @@
 package com.dewakoding.dialogue.net
 
 import com.dewakoding.dialogue.App
-import com.dewakoding.dialogue.preference.CommonCons
-import kotlinx.coroutines.runBlocking
+import com.dewakoding.dialogue.util.CommonCons
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
