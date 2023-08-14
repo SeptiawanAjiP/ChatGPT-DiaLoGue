@@ -8,7 +8,7 @@ You will have an English Virtual Tutor who is ready to be invited to practice En
 ## Installation
 
 ### End User
-You can download the apk file at this [link](https://drive.google.com/file/d/13463gDsd9ZT-Og1SAWL2lEOiCa_6v0bb/view?usp=sharing).
+You can download the apk file at this [link](https://drive.google.com/drive/folders/1FR6Autohj5ZyVfjYFqxG6kw86mVpwNSh?usp=sharing).
 
 ### Android Developer
 You can clone this repo, and run source code with your Android Studio.
