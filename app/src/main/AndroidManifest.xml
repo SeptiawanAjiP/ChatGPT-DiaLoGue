@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
@@ -14,8 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiaLoGue"
-        tools:targetApi="31"
-        >
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.translate.TranslateActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.session.SessionActivity"
             android:exported="true">
@@ -25,9 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.chat.ChatActivity"/>
-        <activity android:name=".ui.session.AddSessionActivity"/>
-        <activity android:name=".ui.setting.SettingActivity"/>
+        <activity android:name=".ui.chat.ChatActivity" />
+        <activity android:name=".ui.session.AddSessionActivity" />
+        <activity android:name=".ui.setting.SettingActivity" />
     </application>
 
 </manifest>

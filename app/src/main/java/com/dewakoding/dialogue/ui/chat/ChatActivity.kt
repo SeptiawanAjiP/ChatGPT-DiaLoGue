@@ -13,6 +13,8 @@ import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityChatBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
+import com.dewakoding.dialogue.ui.translate.TranslateActivity
+import com.dewakoding.dialogue.util.CommonCons
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 import java.util.Objects
@@ -82,16 +84,28 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                 when(item.itemId) {
                     R.id.item_writing ->
-                        Toast.makeText(this@ChatActivity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+                        addPrompAsMessage(CommonCons.PROMPT_WRITING)
                     R.id.item_grammar ->
-                        Toast.makeText(this@ChatActivity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+                        addPrompAsMessage(CommonCons.PROMPT_GRAMMAR)
                     R.id.item_reading ->
-                        Toast.makeText(this@ChatActivity, "You Clicked : " + item.title, Toast.LENGTH_SHORT).show()
+                        addPrompAsMessage(CommonCons.PROMPT_READING)
+                    R.id.item_translate ->
+                        translate()
+
                 }
                 true
             })
             popupMenu.show()
         }
+    }
+
+    fun addPrompAsMessage(str: String) {
+        binding.etMessage.setText(str)
+    }
+
+    fun translate() {
+        val intent = Intent(applicationContext, TranslateActivity::class.java)
+        startActivity(intent)
     }
 
     fun speech(str: String) {

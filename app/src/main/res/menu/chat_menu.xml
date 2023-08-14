@@ -7,13 +7,19 @@
         android:title="Writing"
         app:showAsAction="never" />
     <item
+        android:id="@+id/item_reading"
+        android:orderInCategory="100"
+        android:title="Reading"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/item_grammar"
         android:orderInCategory="100"
         android:title="Grammar"
         app:showAsAction="never" />
     <item
-        android:id="@+id/item_reading"
+        android:id="@+id/item_translate"
         android:orderInCategory="100"
-        android:title="Reading"
+        android:title="Translate"
         app:showAsAction="never" />
+
 </menu>
