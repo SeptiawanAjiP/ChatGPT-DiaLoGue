@@ -28,7 +28,8 @@
             android:text="Halo"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            tools:text="This is a message" />
+            tools:text="This is a message"
+            android:textIsSelectable="true"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

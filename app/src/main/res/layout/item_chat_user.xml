@@ -26,7 +26,8 @@
             android:paddingBottom="6dp"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            tools:text="This is a message" />
+            tools:text="This is a message"
+            android:textIsSelectable="true"/>
         <ImageView
             android:id="@+id/btn_speaker"
             android:layout_width="20dp"

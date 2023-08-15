@@ -1,11 +1,13 @@
 package com.dewakoding.dialogue.repository
 
 import androidx.lifecycle.LiveData
+import com.dewakoding.dialogue.App
 import com.dewakoding.dialogue.database.dao.ChatDao
 import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.dewakoding.dialogue.listener.NetResponseListener
 import com.dewakoding.dialogue.net.RetrofitClient
+import com.dewakoding.dialogue.util.CommonCons
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,5 +44,9 @@ class ChatRepository @Inject constructor(val chatDao: ChatDao) {
             successResponse.onFailed(t.message.toString())
         }
     })
+
+    fun isAutoSpeech(): Boolean {
+        return App.getSession().getSessionBool(CommonCons.AUTO_SPEECH)
+    }
 
 }

@@ -53,7 +53,8 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 adapter.updateList(list)
                 if (list.isNotEmpty()) {
                     if (!list.last().isFromUser) {
-                        speech((list.last().content))
+                        if (viewModel.isAutoSpeech())
+                            speech((list.last().content))
                     }
                 }
                 if (list.size == 0) {

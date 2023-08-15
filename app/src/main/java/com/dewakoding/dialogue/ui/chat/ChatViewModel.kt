@@ -11,7 +11,6 @@ import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.dewakoding.dialogue.util.CommonCons
 import com.dewakoding.dialogue.repository.ChatRepository
-import com.dewakoding.dialogue.util.CommonCons.Companion.WRITING
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -99,5 +98,9 @@ class ChatViewModel @Inject constructor(val chatRepository: ChatRepository): Vie
         } catch (e: Exception) {
             Log.d("AJI", e.toString())
         }
+    }
+
+    fun isAutoSpeech(): Boolean {
+        return chatRepository.isAutoSpeech()
     }
 }

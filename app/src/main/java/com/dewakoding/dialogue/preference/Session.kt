@@ -25,6 +25,15 @@ class Session(private val _context: Context) {
         return preferences.getString(name, null)
     }
 
+    fun createSessionBool(name: String, value: Boolean) {
+        editor.putBoolean(name, value)
+        editor.commit()
+    }
+
+    fun getSessionBool(name: String): Boolean {
+        return preferences.getBoolean(name, false)
+    }
+
     fun clearSession() {
         editor.clear()
         editor.commit()
