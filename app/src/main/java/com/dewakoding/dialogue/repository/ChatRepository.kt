@@ -12,6 +12,7 @@ import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Date
 import javax.inject.Inject
 
 
@@ -32,7 +33,7 @@ class ChatRepository @Inject constructor(val chatDao: ChatDao) {
         return chatDao.getLastGptChat(sessionId)
     }
 
-    fun insertChat(content : String, sessionId: Int, isFromUser: Boolean) = chatDao.insertChat(Chat(0, content, sessionId, isFromUser))
+    fun insertChat(content : String, sessionId: Int, isFromUser: Boolean) = chatDao.insertChat(Chat(0, content, sessionId, isFromUser, Date().time))
 
     suspend fun postToGptApi(json: JsonObject, successResponse: NetResponseListener) = RetrofitClient.instance.postRequest(json).enqueue(object:
         Callback<ChatGptResponse> {

@@ -11,6 +11,7 @@ import com.dewakoding.dialogue.databinding.ActivityAddSessionBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
 import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 @AndroidEntryPoint
@@ -37,7 +38,7 @@ class AddSessionActivity : AppCompatActivity() {
             if (!title.isNullOrEmpty() && !noteDesc.isNullOrEmpty()) {
                 val formatter = SimpleDateFormat("EEE, d MMM yyyy HH:mm a")
 
-                session = Session(null, title, noteDesc)
+                session = Session(null, title, noteDesc, Date().time)
 
                 val intent = Intent()
                 intent.putExtra("session", session)

@@ -1,0 +1,144 @@
+{
+  "study_plan": [
+    {
+      "day": "Monday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Listening",
+          "description": "Practice listening to an IELTS audio clip and answer related questions."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Reading",
+          "description": "Read a passage from an IELTS study material and summarize its main points."
+        },
+        {
+          "time": "Evening",
+          "skill": "Speaking",
+          "description": "Record yourself discussing a familiar topic in English."
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Writing",
+          "description": "Write a short response for Task 1 IELTS Writing."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Listening",
+          "description": "Practice listening to another IELTS audio clip and answer questions."
+        },
+        {
+          "time": "Evening",
+          "skill": "Reading",
+          "description": "Read a different passage and summarize it using your own words."
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Speaking",
+          "description": "Practice answering IELTS Speaking questions out loud."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Writing",
+          "description": "Write a response for Task 2 IELTS Writing (Opinion essay)."
+        },
+        {
+          "time": "Evening",
+          "skill": "Listening",
+          "description": "Listen to an IELTS lecture or talk and take notes."
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Reading",
+          "description": "Read an academic article or passage and answer comprehension questions."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Speaking",
+          "description": "Discuss a random topic with a friend or family member in English."
+        },
+        {
+          "time": "Evening",
+          "skill": "Writing",
+          "description": "Review your written essays and identify areas for improvement."
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Listening",
+          "description": "Listen to a conversation and take notes to summarize the main points."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Reading",
+          "description": "Read a passage from a different source and answer related questions."
+        },
+        {
+          "time": "Evening",
+          "skill": "Speaking",
+          "description": "Record yourself discussing a complex topic in English."
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Writing",
+          "description": "Write a response for a different type of Task 1 (e.g., diagram, process)."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Speaking",
+          "description": "Practice a mock IELTS Speaking test with a timer."
+        },
+        {
+          "time": "Evening",
+          "skill": "Listening",
+          "description": "Listen to an IELTS podcast episode and summarize the content."
+        }
+      ]
+    },
+    {
+      "day": "Sunday",
+      "activities": [
+        {
+          "time": "Morning",
+          "skill": "Reading",
+          "description": "Read a sample IELTS passage and answer questions under timed conditions."
+        },
+        {
+          "time": "Afternoon",
+          "skill": "Writing",
+          "description": "Review grammar and vocabulary resources to enhance your writing skills."
+        },
+        {
+          "time": "Evening",
+          "skill": "Speaking",
+          "description": "Record a full-length mock IELTS Speaking test."
+        }
+      ]
+    }
+  ]
+}

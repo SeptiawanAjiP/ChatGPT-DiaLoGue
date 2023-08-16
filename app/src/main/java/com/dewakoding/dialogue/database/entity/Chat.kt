@@ -15,6 +15,7 @@ data class Chat(
     @ColumnInfo(name = "session_id")
     var sessionId: Int,
     @ColumnInfo(name = "is_from_user")
-    var isFromUser : Boolean
-
+    var isFromUser : Boolean,
+    @ColumnInfo(name = "created_at")
+    val createdAtInMilis: Long,
 )
