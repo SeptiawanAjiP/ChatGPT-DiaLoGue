@@ -12,5 +12,5 @@ website : dewakoding.com
 
  **/
 interface OnItemClickListener {
-    fun onClick(chat: Chat)
+    fun onClick(any: Any)
 }

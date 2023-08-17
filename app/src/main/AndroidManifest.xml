@@ -30,6 +30,8 @@
         <activity android:name=".ui.chat.ChatActivity" />
         <activity android:name=".ui.session.AddSessionActivity" />
         <activity android:name=".ui.setting.SettingActivity" />
+        <activity android:name=".ui.vocabulary.VocabularyActivity"/>
+        <activity android:name=".ui.vocabulary.AddVocabularyActivity"/>
     </application>
 
 </manifest>

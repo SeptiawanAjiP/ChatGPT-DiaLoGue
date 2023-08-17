@@ -36,10 +36,7 @@ class AddSessionActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Success created a session", Toast.LENGTH_SHORT).show()
 
             if (!title.isNullOrEmpty() && !noteDesc.isNullOrEmpty()) {
-                val formatter = SimpleDateFormat("EEE, d MMM yyyy HH:mm a")
-
                 session = Session(null, title, noteDesc, Date().time)
-
                 val intent = Intent()
                 intent.putExtra("session", session)
                 setResult(Activity.RESULT_OK, intent)

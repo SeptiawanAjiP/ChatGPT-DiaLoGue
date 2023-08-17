@@ -14,6 +14,7 @@ import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityChatBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
 import com.dewakoding.dialogue.ui.translate.TranslateActivity
+import com.dewakoding.dialogue.ui.vocabulary.VocabularyActivity
 import com.dewakoding.dialogue.util.CommonCons
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
@@ -34,8 +35,10 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setContentView(binding.root)
         textToSpeec = TextToSpeech(this, this)
         adapter = ChatAdapter(object: OnItemClickListener{
-            override fun onClick(chat: Chat) {
-                speech(chat.content)
+            override fun onClick(any: Any) {
+                if (any is Chat) {
+                    speech(any.content)
+                }
             }
         })
         binding.rvChat.adapter = adapter
@@ -92,6 +95,9 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                         addPrompAsMessage(CommonCons.PROMPT_READING)
                     R.id.item_translate ->
                         translate()
+                    R.id.item_vocabulary ->
+                        vocabulary()
+
 
                 }
                 true
@@ -112,6 +118,11 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     fun speech(str: String) {
         textToSpeec.setSpeechRate(1f)
         textToSpeec!!.speak(str, TextToSpeech.QUEUE_FLUSH, null,"")
+    }
+
+    fun vocabulary() {
+        val intent = Intent(applicationContext, VocabularyActivity::class.java)
+        startActivity(intent)
     }
 
     fun record() {

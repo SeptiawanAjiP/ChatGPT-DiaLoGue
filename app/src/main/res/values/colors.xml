@@ -12,6 +12,9 @@
     <color name="color_5">#4f755e </color>
     <color name="color_6">#7c9bb9</color>
 
+    <color name="grey_1">#cccccc</color>
+    <color name="grey_2">#c0c0c0</color>
+
 
 
 </resources>

@@ -38,4 +38,8 @@ class DatabaseModule {
     @Singleton
     fun provideChatDao(db: AppDatabase) = db.chatDao()
 
+    @Provides
+    @Singleton
+    fun provideVocabularyDao(db: AppDatabase) = db.vocabDao()
+
 }
