@@ -88,6 +88,19 @@
                 android:background="@null"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"/>
+            <TextView
+                android:id="@+id/tv_auto_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auto Translate"
+                android:background="@drawable/rounded_rectangle_user"
+                android:textColor="@color/white"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="4dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView

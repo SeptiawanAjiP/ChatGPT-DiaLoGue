@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.database.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ActivityAddVocabularyBinding
+import com.dewakoding.dialogue.listener.NetResponseListener
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 
@@ -36,6 +37,29 @@ class AddVocabularyActivity: AppCompatActivity() {
             } else {
                 Toast.makeText(applicationContext, resources.getString(R.string.fill_in_the_blank), Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.tvAutoTranslate.setOnClickListener {
+            val english = binding.etEnglish.text.toString()
+            if (!english.isNullOrEmpty()) {
+                viewModel.getVocabTranslate(english, object: NetResponseListener{
+                    override fun onSuccess(successResponse: Any) {
+                        if (successResponse is String)
+                            binding.etBahasa.setText((successResponse))
+                    }
+
+                    override fun onFailed(errorMessage: String) {
+                        Toast.makeText(applicationContext, resources.getString(R.string.error_occured), Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+            } else {
+                Toast.makeText(applicationContext, resources.getString(R.string.fill_in_the_blank), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.imgBack.setOnClickListener {
+            finish()
         }
     }
 }

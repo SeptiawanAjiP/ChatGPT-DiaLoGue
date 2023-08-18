@@ -21,6 +21,13 @@ class CommonCons {
         val PROMPT_CONVERSATION = "You are a very experienced English tutor. I'm trying to learn English. Your name is DiaLoGue. Your job is to keep me in a conversation so that I can learn about writing and reading English. You must always answer my questions, and you must always ask an open-ended question of my opinion or question, ask only 1 question. Dont ask me more than 1 question. You must never let a conversation die. Answer with a maximum of 8 sentences in total, The answer must be short and max 400 words."
         val PROMPT_CONVERSATION_INIT = "$PROMPT_CONVERSATION. Introduce your self and Lets ask me what topic I want to discuss"
 
+        fun GET_PROMPT_VOCAB_EXAMPLE(english: String): String {
+            return "give me an example of a short sentence containing the word '${english}', and display the Indonesian translation"
+        }
+
+        fun GET_PROMPT_VOCAB_TRANSLATE(english: String): String {
+            return "You are a dictionary system. Translate the word '${english}' into Indonesian, you just need to translate it, don't add another sentence"
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">DiaLoGue</string>
     <string name="fill_in_the_blank">Please fill in the blanks</string>
+    <string name="error_occured">Upss... An error occured</string>
 </resources>

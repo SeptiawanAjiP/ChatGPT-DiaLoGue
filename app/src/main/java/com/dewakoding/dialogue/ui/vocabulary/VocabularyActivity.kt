@@ -2,15 +2,11 @@ package com.dewakoding.dialogue.ui.vocabulary
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.dewakoding.dialogue.database.entity.Chat
 import com.dewakoding.dialogue.database.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ActivityVocabularyBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
-import com.dewakoding.dialogue.ui.session.SessionAdapter
-import com.dewakoding.dialogue.ui.session.SessionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -34,7 +30,7 @@ class VocabularyActivity: AppCompatActivity() {
         adapter = VocabularyAdapter(object: OnItemClickListener {
             override fun onClick(any: Any) {
                 if (any is Vocabulary) {
-                    viewModel.postToGPT(any)
+                    viewModel.getVocabExample(any)
                 }
 
             }
@@ -45,7 +41,6 @@ class VocabularyActivity: AppCompatActivity() {
             list.let {
                 adapter.updateList(it)
             }
-
         }
 
         binding.floatingActionButton.setOnClickListener {
