@@ -27,12 +27,17 @@ class VocabularyActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        adapter = VocabularyAdapter(object: OnItemClickListener {
+        adapter = VocabularyAdapter(applicationContext, object: OnItemClickListener {
             override fun onClick(any: Any) {
                 if (any is Vocabulary) {
                     viewModel.getVocabExample(any)
                 }
 
+            }
+
+            override fun onLongClick(any: Any) {
+                if (any is Vocabulary)
+                    viewModel.delete(any)
             }
         })
         binding.rvVocabulary.adapter = adapter

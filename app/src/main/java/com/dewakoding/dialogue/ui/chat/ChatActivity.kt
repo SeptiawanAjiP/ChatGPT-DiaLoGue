@@ -40,6 +40,10 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     speech(any.content)
                 }
             }
+
+            override fun onLongClick(any: Any) {
+
+            }
         })
         binding.rvChat.adapter = adapter
 
@@ -84,7 +88,7 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         binding.imgType.setOnClickListener {
             val popupMenu = PopupMenu(this, binding.imgType)
-            popupMenu.menuInflater.inflate(R.menu.chat_menu,popupMenu.menu)
+            popupMenu.menuInflater.inflate(R.menu.menu_chat,popupMenu.menu)
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                 when(item.itemId) {
                     R.id.item_writing ->

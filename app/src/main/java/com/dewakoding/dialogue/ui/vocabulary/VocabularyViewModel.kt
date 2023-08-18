@@ -42,6 +42,10 @@ class VocabularyViewModel @Inject constructor(val vocabularyRepository: Vocabula
         vocabularyRepository.addExample(id, example)
     }
 
+    fun delete(vocabulary: Vocabulary) = viewModelScope.launch (Dispatchers.IO) {
+        vocabularyRepository.delete(vocabulary)
+    }
+
     fun getVocabExample(vocabulary: Vocabulary) = viewModelScope.launch {
         val jsonArray = JsonArray()
         val lastObject = JsonObject().apply {

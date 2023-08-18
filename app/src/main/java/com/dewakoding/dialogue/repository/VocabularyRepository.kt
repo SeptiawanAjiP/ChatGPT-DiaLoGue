@@ -29,6 +29,8 @@ class VocabularyRepository @Inject constructor(val vocabularyDao: VocabularyDao)
 
     suspend fun addExample(id: Int, example: String) = vocabularyDao.addExample(id, example)
 
+    suspend fun delete(vocab: Vocabulary) = vocabularyDao.delete(vocab)
+
     suspend fun postToGptApi(json: JsonObject, successResponse: NetResponseListener) = RetrofitClient.instance.postRequest(json).enqueue(object:
         Callback<ChatGptResponse> {
         override fun onResponse(call: Call<ChatGptResponse>, response: Response<ChatGptResponse>) {

@@ -13,4 +13,6 @@ website : dewakoding.com
  **/
 interface OnItemClickListener {
     fun onClick(any: Any)
+
+    fun onLongClick(any: Any)
 }

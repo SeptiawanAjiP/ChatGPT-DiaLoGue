@@ -1,14 +1,16 @@
 package com.dewakoding.dialogue.ui.vocabulary
 
-import android.opengl.Visibility
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
-import com.dewakoding.dialogue.database.entity.Session
+import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.database.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ItemVocabularyBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
+import com.dewakoding.dialogue.util.CommonCons
 
 
 /**
@@ -19,7 +21,7 @@ email : septiawanajipradana@gmail.com
 website : dewakoding.com
 
  **/
-class VocabularyAdapter(val onItemClickListener: OnItemClickListener): RecyclerView.Adapter<VocabularyAdapter.ViewHolder>() {
+class VocabularyAdapter(val context: Context, val onItemClickListener: OnItemClickListener): RecyclerView.Adapter<VocabularyAdapter.ViewHolder>() {
     private val vocabList = ArrayList<Vocabulary>()
     class ViewHolder(val binding: ItemVocabularyBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -41,8 +43,22 @@ class VocabularyAdapter(val onItemClickListener: OnItemClickListener): RecyclerV
             onItemClickListener.onClick(vocab)
         }
 
+        holder.binding.root.setOnLongClickListener{
+            val popupMenu = PopupMenu(context, holder.binding.tvEnglish)
+            popupMenu.menuInflater.inflate(R.menu.menu_delete,popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when(item.itemId) {
+                    R.id.item_delete ->
+                        onItemClickListener.onLongClick(vocab)
+                }
+                true
+            })
+            popupMenu.show()
+            true
+        }
+
         holder.binding.tvBahasa.setText(vocab.bahasa)
-        holder.binding.tvEnglish.setText(vocab.english)
+        holder.binding.tvEnglish.setText(vocab.english.replaceFirstChar(Char::uppercase) )
         holder.binding.tvExample.setText(vocab.example)
     }
 
