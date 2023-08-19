@@ -145,8 +145,54 @@
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_alignParentRight="true"/>
                 </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_standard_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cv_auto_speech"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:id="@+id/tv_standard_test"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Standard Test (-soon-)"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:background="@null"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked">
+                    <RadioButton
+                        android:id="@+id/rb_toefl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOEFL"/>
+                    <RadioButton
+                        android:id="@+id/rb_ielts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IELTS"/>
 
-
+                </RadioGroup>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

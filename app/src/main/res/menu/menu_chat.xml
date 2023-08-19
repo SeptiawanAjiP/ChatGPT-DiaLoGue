@@ -17,14 +17,11 @@
         android:title="Grammar"
         app:showAsAction="never" />
     <item
-        android:id="@+id/item_translate"
-        android:orderInCategory="100"
-        android:title="Translate"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/item_vocabulary"
         android:orderInCategory="100"
-        android:title="Vocabulary"
+        android:title="Vocab and Translate"
         app:showAsAction="never" />
+
+
 
 </menu>

@@ -52,5 +52,9 @@ class VocabularyActivity: AppCompatActivity() {
             val intent = Intent(applicationContext, AddVocabularyActivity::class.java)
             startActivity(intent)
         }
+
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
     }
 }

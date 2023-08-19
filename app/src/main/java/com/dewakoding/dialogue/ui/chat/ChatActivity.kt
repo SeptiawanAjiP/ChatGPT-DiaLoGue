@@ -97,12 +97,8 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                         addPrompAsMessage(CommonCons.PROMPT_GRAMMAR)
                     R.id.item_reading ->
                         addPrompAsMessage(CommonCons.PROMPT_READING)
-                    R.id.item_translate ->
-                        translate()
                     R.id.item_vocabulary ->
                         vocabulary()
-
-
                 }
                 true
             })
@@ -112,11 +108,6 @@ class ChatActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     fun addPrompAsMessage(str: String) {
         binding.etMessage.setText(str)
-    }
-
-    fun translate() {
-        val intent = Intent(applicationContext, TranslateActivity::class.java)
-        startActivity(intent)
     }
 
     fun speech(str: String) {
