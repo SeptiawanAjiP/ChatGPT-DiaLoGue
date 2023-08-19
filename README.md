@@ -1,9 +1,19 @@
 # ChatGPT - DiaLoGue
 ![image](https://raw.githubusercontent.com/SeptiawanAjiP/ChatGPT-DiaLoGue/master/image.jpeg)
 
-DiaLoGue is an Open Source Virtual English Tutor AI App. DiaLoGue is connected to [ChatGPT](https://chat.openai.com). You can learn English listening and speaking with AI-Based English Virtual Tutor, anytime, anywhere, 24 hours.
+DiaLoGue is an Open Source Virtual English Tutor AI App. DiaLoGue is connected to [ChatGPT](https://chat.openai.com). You can learn English listening, writing, reading and speaking with AI-Based English Virtual Tutor, anytime, anywhere, 24 hours.
 
-You will have an English Virtual Tutor who is ready to be invited to practice English listening and speaking at any time. You can talk about anything with DiaLoGue, you can choose the topic that you like. Talk about your day, your job, your hobby, whatever you like. DiaLoGue will always respond to you, he will always ask you questions so this will enhance your English speaking skills.
+You will have an English Virtual Tutor who is ready to be invited to practice English listening, writing, reading and speaking at any time. You can talk about anything with DiaLoGue, you can choose the topic that you like. Talk about your day, your job, your hobby, whatever you like. DiaLoGue will always respond to you, he will always ask you questions so this will enhance your English speaking skills.
+
+## Key Features
+
+* Open-Ended Conversation with AI
+* Practice English Listening, Speaking, Reading and Writing with AI
+* Auto translate English to Bahasa
+* Dictionary Feature
+* Automatically generating sentences from vocabulary by AI
+* Choose english standard test (TOEFL or IELTS) --soon
+
 
 ## Installation
 
