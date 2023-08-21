@@ -5,17 +5,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.database.AppDatabase
 import com.dewakoding.dialogue.database.entity.Session
 import com.dewakoding.dialogue.databinding.ActivitySessionBinding
 import com.dewakoding.dialogue.ui.setting.SettingActivity
 import com.dewakoding.dialogue.ui.chat.ChatActivity
+import com.dewakoding.dialogue.ui.vocabulary.VocabularyActivity
+import com.dewakoding.dialogue.util.CommonCons
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -46,7 +50,6 @@ class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {
                 viewModel.updateNote(note)
             }
         }
-
     }
 
     private fun initUi() {
@@ -71,9 +74,29 @@ class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {
         }
 
         binding.imgSetting.setOnClickListener {
-            val intent = Intent(this, SettingActivity::class.java)
-            getContent.launch(intent)
+            val popupMenu = PopupMenu(this, binding.imgSetting)
+            popupMenu.menuInflater.inflate(R.menu.menu_main_page, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when(item.itemId) {
+                    R.id.item_setting ->
+                        openSetting()
+                    R.id.item_vocabulary ->
+                        openVocabulary()
+                }
+                true
+            })
+            popupMenu.show()
         }
+    }
+
+    fun openVocabulary() {
+        val intent = Intent(applicationContext, VocabularyActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun openSetting() {
+        val intent = Intent(this, SettingActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onClicked(session: Session) {
