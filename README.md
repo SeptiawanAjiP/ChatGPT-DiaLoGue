@@ -27,7 +27,3 @@ You can clone this repo, and run source code with your Android Studio.
 This app requires Chat GPT Api Key. To get Chat GPT Api Key just visit this [link](https://platform.openai.com/account/api-keys), create account first and then create new secret key. Place your ChatGPT Api Key in Setting Activity.
 
 ![image](https://raw.githubusercontent.com/SeptiawanAjiP/ChatGPT-DiaLoGue/master/image-demo-api-key.png)
-
-## How the Apps Work
-![image](https://raw.githubusercontent.com/SeptiawanAjiP/ChatGPT-DiaLoGue/master/image-demo-how-it-is-works.png)
-
