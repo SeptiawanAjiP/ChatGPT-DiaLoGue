@@ -2,7 +2,7 @@ package com.dewakoding.dialogue.di
 
 import android.content.Context
 import androidx.room.Room
-import com.dewakoding.dialogue.database.AppDatabase
+import com.dewakoding.dialogue.data.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

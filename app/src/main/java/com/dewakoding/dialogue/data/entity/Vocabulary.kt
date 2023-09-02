@@ -1,4 +1,4 @@
-package com.dewakoding.dialogue.database.entity
+package com.dewakoding.dialogue.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -4,15 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import com.dewakoding.dialogue.database.entity.Session
+import com.dewakoding.dialogue.data.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityAddSessionBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
 
 @AndroidEntryPoint
 class AddSessionActivity : AppCompatActivity() {

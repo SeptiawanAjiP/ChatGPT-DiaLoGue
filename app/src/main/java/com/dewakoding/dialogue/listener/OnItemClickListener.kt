@@ -1,7 +1,5 @@
 package com.dewakoding.dialogue.listener
 
-import com.dewakoding.dialogue.database.entity.Chat
-
 
 /**
 

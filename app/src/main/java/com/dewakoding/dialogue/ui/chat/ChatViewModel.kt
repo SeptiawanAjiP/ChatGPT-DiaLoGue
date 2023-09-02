@@ -2,12 +2,10 @@ package com.dewakoding.dialogue.ui.chat
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dewakoding.dialogue.App
 import com.dewakoding.dialogue.listener.NetResponseListener
-import com.dewakoding.dialogue.database.entity.Chat
+import com.dewakoding.dialogue.data.entity.Chat
 import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.dewakoding.dialogue.util.CommonCons
 import com.dewakoding.dialogue.repository.ChatRepository

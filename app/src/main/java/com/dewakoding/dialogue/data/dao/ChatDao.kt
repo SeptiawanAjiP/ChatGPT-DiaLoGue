@@ -1,11 +1,11 @@
-package com.dewakoding.dialogue.database.dao
+package com.dewakoding.dialogue.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.dewakoding.dialogue.database.entity.Chat
+import com.dewakoding.dialogue.data.entity.Chat
 
 @Dao
 interface ChatDao {

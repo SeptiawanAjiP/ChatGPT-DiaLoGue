@@ -1,8 +1,8 @@
 package com.dewakoding.dialogue.repository
 
 import androidx.lifecycle.LiveData
-import com.dewakoding.dialogue.database.dao.SessionDao
-import com.dewakoding.dialogue.database.entity.Session
+import com.dewakoding.dialogue.data.dao.SessionDao
+import com.dewakoding.dialogue.data.entity.Session
 import javax.inject.Inject
 
 

@@ -6,24 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.cardview.widget.CardView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dewakoding.dialogue.R
-import com.dewakoding.dialogue.database.AppDatabase
-import com.dewakoding.dialogue.database.entity.Session
+import com.dewakoding.dialogue.data.entity.Session
 import com.dewakoding.dialogue.databinding.ActivitySessionBinding
 import com.dewakoding.dialogue.ui.setting.SettingActivity
 import com.dewakoding.dialogue.ui.chat.ChatActivity
 import com.dewakoding.dialogue.ui.vocabulary.VocabularyActivity
-import com.dewakoding.dialogue.util.CommonCons
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {

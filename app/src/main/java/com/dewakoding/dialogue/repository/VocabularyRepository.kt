@@ -1,9 +1,9 @@
 package com.dewakoding.dialogue.repository
 
 import androidx.lifecycle.LiveData
-import com.dewakoding.dialogue.database.dao.VocabularyDao
-import com.dewakoding.dialogue.database.entity.Session
-import com.dewakoding.dialogue.database.entity.Vocabulary
+import com.dewakoding.dialogue.data.dao.VocabularyDao
+import com.dewakoding.dialogue.data.entity.Vocabulary
+import com.dewakoding.dialogue.data.entity.VocabularyCountByDate
 import com.dewakoding.dialogue.listener.NetResponseListener
 import com.dewakoding.dialogue.net.RetrofitClient
 import com.dewakoding.dialogue.net.response.ChatGptResponse
@@ -24,6 +24,8 @@ website : dewakoding.com
  **/
 class VocabularyRepository @Inject constructor(val vocabularyDao: VocabularyDao) {
     val allVocab: LiveData<List<Vocabulary>> = vocabularyDao.getAllVocab()
+    val vocabByDate: LiveData<List<VocabularyCountByDate>> = vocabularyDao.getVocabularyCountByDate()
+
 
     suspend fun insert(vocab: Vocabulary) = vocabularyDao.insert(vocab)
 

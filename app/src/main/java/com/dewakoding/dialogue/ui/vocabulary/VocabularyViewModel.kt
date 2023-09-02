@@ -4,7 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dewakoding.dialogue.database.entity.Vocabulary
+import com.dewakoding.dialogue.data.entity.Vocabulary
+import com.dewakoding.dialogue.data.entity.VocabularyCountByDate
 import com.dewakoding.dialogue.listener.NetResponseListener
 import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.dewakoding.dialogue.repository.VocabularyRepository
@@ -30,8 +31,10 @@ website : dewakoding.com
 @HiltViewModel
 class VocabularyViewModel @Inject constructor(val vocabularyRepository: VocabularyRepository) : ViewModel() {
     val allVocab: LiveData<List<Vocabulary>>
+    val vocabByDate: LiveData<List<VocabularyCountByDate>>
     init {
         allVocab = vocabularyRepository.allVocab
+        vocabByDate = vocabularyRepository.vocabByDate
     }
 
     fun insert(vocabulary: Vocabulary) = viewModelScope.launch(Dispatchers.IO) {

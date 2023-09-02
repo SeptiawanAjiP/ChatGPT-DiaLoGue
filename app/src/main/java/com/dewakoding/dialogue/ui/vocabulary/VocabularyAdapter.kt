@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.dewakoding.dialogue.R
-import com.dewakoding.dialogue.database.entity.Vocabulary
+import com.dewakoding.dialogue.data.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ItemVocabularyBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
-import com.dewakoding.dialogue.util.CommonCons
 
 
 /**

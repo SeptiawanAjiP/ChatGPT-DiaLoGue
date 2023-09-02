@@ -9,11 +9,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.dewakoding.dialogue.R
-import com.dewakoding.dialogue.database.entity.Chat
-import com.dewakoding.dialogue.database.entity.Session
+import com.dewakoding.dialogue.data.entity.Chat
+import com.dewakoding.dialogue.data.entity.Session
 import com.dewakoding.dialogue.databinding.ActivityChatBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
-import com.dewakoding.dialogue.ui.translate.TranslateActivity
 import com.dewakoding.dialogue.ui.vocabulary.VocabularyActivity
 import com.dewakoding.dialogue.util.CommonCons
 import dagger.hilt.android.AndroidEntryPoint

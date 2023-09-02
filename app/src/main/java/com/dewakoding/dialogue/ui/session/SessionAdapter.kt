@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.dewakoding.dialogue.R
-import com.dewakoding.dialogue.database.entity.Session
+import com.dewakoding.dialogue.data.entity.Session
 import com.dewakoding.dialogue.databinding.ItemSessionBinding
 
 

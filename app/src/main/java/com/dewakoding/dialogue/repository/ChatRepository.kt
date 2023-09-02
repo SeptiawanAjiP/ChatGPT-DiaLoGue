@@ -2,8 +2,8 @@ package com.dewakoding.dialogue.repository
 
 import androidx.lifecycle.LiveData
 import com.dewakoding.dialogue.App
-import com.dewakoding.dialogue.database.dao.ChatDao
-import com.dewakoding.dialogue.database.entity.Chat
+import com.dewakoding.dialogue.data.dao.ChatDao
+import com.dewakoding.dialogue.data.entity.Chat
 import com.dewakoding.dialogue.net.response.ChatGptResponse
 import com.dewakoding.dialogue.listener.NetResponseListener
 import com.dewakoding.dialogue.net.RetrofitClient

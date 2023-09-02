@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.dewakoding.dialogue.R
-import com.dewakoding.dialogue.database.entity.Vocabulary
+import com.dewakoding.dialogue.data.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ActivityAddVocabularyBinding
 import com.dewakoding.dialogue.listener.NetResponseListener
 import dagger.hilt.android.AndroidEntryPoint

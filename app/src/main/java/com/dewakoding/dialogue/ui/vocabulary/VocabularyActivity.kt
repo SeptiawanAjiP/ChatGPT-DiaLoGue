@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.dewakoding.dialogue.database.entity.Vocabulary
+import com.dewakoding.dialogue.data.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ActivityVocabularyBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,6 +48,13 @@ class VocabularyActivity: AppCompatActivity() {
             }
         }
 
+        viewModel.vocabByDate.observe(this) { list ->
+            list.let {
+
+            }
+
+        }
+
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(applicationContext, AddVocabularyActivity::class.java)
             startActivity(intent)
@@ -56,5 +63,7 @@ class VocabularyActivity: AppCompatActivity() {
         binding.imgBack.setOnClickListener {
             finish()
         }
+
+
     }
 }

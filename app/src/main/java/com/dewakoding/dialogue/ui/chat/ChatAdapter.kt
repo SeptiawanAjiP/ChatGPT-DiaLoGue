@@ -3,8 +3,7 @@ package com.dewakoding.dialogue.ui.chat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dewakoding.dialogue.R
-import com.dewakoding.dialogue.database.entity.Chat
+import com.dewakoding.dialogue.data.entity.Chat
 import com.dewakoding.dialogue.databinding.ItemChatGptBinding
 import com.dewakoding.dialogue.databinding.ItemChatUserBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
