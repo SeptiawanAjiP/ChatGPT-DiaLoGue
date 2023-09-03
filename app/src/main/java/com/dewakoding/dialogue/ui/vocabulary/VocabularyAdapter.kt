@@ -10,6 +10,7 @@ import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.data.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ItemVocabularyBinding
 import com.dewakoding.dialogue.listener.OnItemClickListener
+import com.dewakoding.dialogue.listener.OnVocabClickListener
 
 
 /**
@@ -20,7 +21,7 @@ email : septiawanajipradana@gmail.com
 website : dewakoding.com
 
  **/
-class VocabularyAdapter(val context: Context, val onItemClickListener: OnItemClickListener): RecyclerView.Adapter<VocabularyAdapter.ViewHolder>() {
+class VocabularyAdapter(val context: Context, val onVocabClickListener: OnVocabClickListener): RecyclerView.Adapter<VocabularyAdapter.ViewHolder>() {
     private val vocabList = ArrayList<Vocabulary>()
     class ViewHolder(val binding: ItemVocabularyBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -39,16 +40,19 @@ class VocabularyAdapter(val context: Context, val onItemClickListener: OnItemCli
         }
 
         holder.binding.imgExample.setOnClickListener {
-            onItemClickListener.onClick(vocab)
+            onVocabClickListener.onSentencesExample(vocab)
         }
 
         holder.binding.root.setOnLongClickListener{
             val popupMenu = PopupMenu(context, holder.binding.tvEnglish)
-            popupMenu.menuInflater.inflate(R.menu.menu_delete,popupMenu.menu)
+            popupMenu.menuInflater.inflate(R.menu.menu_item_vocab,popupMenu.menu)
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                 when(item.itemId) {
                     R.id.item_delete ->
-                        onItemClickListener.onLongClick(vocab)
+                        onVocabClickListener.onDelete(vocab)
+                    R.id.item_listen ->
+                        onVocabClickListener.onListen(vocab)
+
                 }
                 true
             })
