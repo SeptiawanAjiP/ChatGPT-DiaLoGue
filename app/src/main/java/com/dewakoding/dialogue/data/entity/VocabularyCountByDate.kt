@@ -10,6 +10,6 @@ website : dewakoding.com
 
  **/
 data class VocabularyCountByDate(
-    val date: Long,
+    val date: String,
     val count: Int
 )

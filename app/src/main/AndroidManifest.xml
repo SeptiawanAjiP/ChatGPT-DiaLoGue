@@ -32,6 +32,7 @@
         <activity android:name=".ui.setting.SettingActivity" />
         <activity android:name=".ui.vocabulary.VocabularyActivity"/>
         <activity android:name=".ui.vocabulary.AddVocabularyActivity"/>
+        <activity android:name=".ui.vocabularybydate.VocabularyCountByDateActivity"/>
     </application>
 
 </manifest>

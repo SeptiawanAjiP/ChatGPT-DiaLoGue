@@ -42,4 +42,8 @@ class DatabaseModule {
     @Singleton
     fun provideVocabularyDao(db: AppDatabase) = db.vocabDao()
 
+    @Provides
+    @Singleton
+    fun provideVocabularyCountByDateDao(db: AppDatabase) = db.vocabCountByDateDao()
+
 }

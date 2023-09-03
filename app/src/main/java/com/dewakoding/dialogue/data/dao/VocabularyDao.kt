@@ -33,10 +33,7 @@ interface VocabularyDao {
     @Query("UPDATE vocabularies SET example= :example WHERE id = :id")
     suspend fun addExample(id: Int?, example: String?)
 
-    @Query("SELECT strftime('%Y-%m-%d', datetime(created_at / 1000, 'unixepoch')) as date, COUNT(*) as count FROM vocabularies GROUP BY date ORDER BY date DESC")
-    fun getVocabularyCountByDate(): LiveData<List<VocabularyCountByDate>>
-
-    @Query("SELECT * FROM vocabularies WHERE strftime('%Y-%m-%d', datetime(createdAtInMilis / 1000, 'unixepoch')) = :desiredDate")
-    suspend fun getVocabulariesByDate(desiredDate: String): List<Vocabulary>
+    @Query("SELECT * FROM vocabularies WHERE strftime('%Y-%m-%d', datetime(created_at/ 1000, 'unixepoch')) = :desiredDate")
+    fun getVocabulariesByDate(desiredDate: String): LiveData<List<Vocabulary>>
 
 }

@@ -31,10 +31,12 @@ website : dewakoding.com
 @HiltViewModel
 class VocabularyViewModel @Inject constructor(val vocabularyRepository: VocabularyRepository) : ViewModel() {
     val allVocab: LiveData<List<Vocabulary>>
-    val vocabByDate: LiveData<List<VocabularyCountByDate>>
     init {
         allVocab = vocabularyRepository.allVocab
-        vocabByDate = vocabularyRepository.vocabByDate
+    }
+
+    fun getVocabCountByDate(str: String): LiveData<List<Vocabulary>> {
+        return vocabularyRepository.getVocabulariesByDate(str)
     }
 
     fun insert(vocabulary: Vocabulary) = viewModelScope.launch(Dispatchers.IO) {

@@ -16,6 +16,7 @@ import com.dewakoding.dialogue.databinding.ActivitySessionBinding
 import com.dewakoding.dialogue.ui.setting.SettingActivity
 import com.dewakoding.dialogue.ui.chat.ChatActivity
 import com.dewakoding.dialogue.ui.vocabulary.VocabularyActivity
+import com.dewakoding.dialogue.ui.vocabularybydate.VocabularyCountByDateActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -84,6 +85,8 @@ class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {
 
     fun openVocabulary() {
         val intent = Intent(applicationContext, VocabularyActivity::class.java)
+//        startActivity(intent)
+//        val intent = Intent(applicationContext, VocabularyCountByDateActivity::class.java)
         startActivity(intent)
     }
 

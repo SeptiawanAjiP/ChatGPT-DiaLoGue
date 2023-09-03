@@ -24,7 +24,9 @@ website : dewakoding.com
  **/
 class VocabularyRepository @Inject constructor(val vocabularyDao: VocabularyDao) {
     val allVocab: LiveData<List<Vocabulary>> = vocabularyDao.getAllVocab()
-    val vocabByDate: LiveData<List<VocabularyCountByDate>> = vocabularyDao.getVocabularyCountByDate()
+    fun getVocabulariesByDate(str: String): LiveData<List<Vocabulary>> {
+        return vocabularyDao.getVocabulariesByDate(str)
+    }
 
 
     suspend fun insert(vocab: Vocabulary) = vocabularyDao.insert(vocab)
