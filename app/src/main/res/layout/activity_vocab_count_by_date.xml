@@ -1,47 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-        android:id="@+id/rl_header"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+        <!-- Header -->
+        <RelativeLayout
+            android:id="@+id/rl_header"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_toRightOf="@id/img_back"
-            android:text="Vocabulary Count by Date"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-    <com.dewakoding.androiddatatable.DataTableView
-        android:id="@+id/dtv_table"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rl_header"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingTop="10dp"/>
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toRightOf="@id/img_back"
+                android:text="Vocabulary Count by Date"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <com.dewakoding.androidchartjs.AndroidChartJSView
+            android:id="@+id/android_chart_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rl_header"
+            app:layout_constraintLeft_toLeftOf="parent">
+        </com.dewakoding.androidchartjs.AndroidChartJSView>
+
+        <com.dewakoding.androiddatatable.DataTableView
+            android:id="@+id/dtv_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/android_chart_1"
+            android:paddingTop="10dp"
+            android:layout_marginTop="30dp">
+        </com.dewakoding.androiddatatable.DataTableView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

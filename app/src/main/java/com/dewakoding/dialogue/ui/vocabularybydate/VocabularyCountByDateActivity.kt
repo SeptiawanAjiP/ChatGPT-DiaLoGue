@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dewakoding.androidchartjs.util.ChartType
 import com.dewakoding.androiddatatable.data.Column
 import com.dewakoding.androiddatatable.listener.OnWebViewComponentClickListener
 import com.dewakoding.dialogue.data.entity.VocabularyCountByDate
@@ -39,6 +40,12 @@ class VocabularyCountByDateActivity: AppCompatActivity() {
             list.forEach {
                 listData.add(it)
             }
+
+            binding.androidChart1.setChart(
+                ChartType.LINE,
+                listData.map { it.date }.toTypedArray().reversedArray(),
+                listData.map { it.count }.toTypedArray().reversedArray(),
+                "of quantity")
             binding.dtvTable.setTable(column, listData, true)
         }
 
@@ -56,10 +63,6 @@ class VocabularyCountByDateActivity: AppCompatActivity() {
         binding.imgBack.setOnClickListener {
             finish()
         }
-
-
-
-
 
 
     }

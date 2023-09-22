@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.dewakoding.androidchartjs.util.ChartType
 import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.data.entity.Session
 import com.dewakoding.dialogue.databinding.ActivitySessionBinding
@@ -35,6 +36,13 @@ class SessionActivity : AppCompatActivity(), SessionAdapter.NotesClickListener {
                 adapter.updateList(it)
             }
         }
+
+        binding.androidChart1.setChart(
+            ChartType.LINE,
+            arrayOf("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"),
+            arrayOf(10, 3, 5, 8, 9),
+            "of quantity")
+
     }
 
     private val updateNote = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->

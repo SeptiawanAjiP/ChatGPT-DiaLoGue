@@ -1,7 +1,6 @@
 package com.dewakoding.dialogue.ui.vocabulary
 
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dewakoding.dialogue.R
 import com.dewakoding.dialogue.data.entity.Vocabulary
 import com.dewakoding.dialogue.databinding.ActivityVocabularyBinding
-import com.dewakoding.dialogue.listener.OnItemClickListener
 import com.dewakoding.dialogue.listener.OnVocabClickListener
 import com.dewakoding.dialogue.ui.vocabularybydate.VocabularyCountByDateActivity
 import dagger.hilt.android.AndroidEntryPoint

@@ -89,4 +89,7 @@ dependencies {
     // // gson
     implementation 'com.google.code.gson:gson:2.10.1'
 
+    // chart
+    implementation 'com.github.SeptiawanAjiP:AndroidChartJS:1.0.5'
+
 }
